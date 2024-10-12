@@ -100,51 +100,36 @@ nav {
   border: 1px solid var(--accent);
 }
 
-.project-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-bottom: 5em;
-  gap: 4em;
+.gallary{
+  height: 760px;
 }
 
-.project-thumbnail {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  transition: .2s ease;
-  transition-property: all;
-  transition-property: transform;
-}
-
-.project-thumbnail:hover {
-  transform: scale(1.03);
-}
-
-.project-name {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.project-title {
-  font-size: 1.4rem;
-  color: var(--dark-grey);
-  font-weight: bold;
-}
-
-.project-description {
-  padding-block: 2em;
-  line-height: 145%;
-  max-width: 40ch;
-}
-
-footer {
+.gallary .photos{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5em;
+  flex-direction: row;
+  gap: 20px;
 }
 
-footer > p:hover {
-  color: var(--accent);
+.gallary .photos .photo-container{
+  height: 620px;
+  width: 311 px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.gallary .photos .photo-container img{
+  object-fit: cover;
+  height: 420px;
+}
+
+
+.gallary .photos .photo-container .basic-info{
+  object-fit: cover;
+  height: calc(620px - 420px);
 }
