@@ -1,4 +1,8 @@
-# Push to Your GitHub Repository
+# Blockchain and Web3 project
+
+THis project utilizes blockcahin technology to import a static website to the blockchain.
+
+## Push to Your GitHub Repository
 Run command in terminal 
 
 ```
