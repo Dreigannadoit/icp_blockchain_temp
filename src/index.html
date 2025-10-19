@@ -2,63 +2,171 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Your Name</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/theme-1.css">
-
-    <script src="./app.js"></script>
 </head>
 
-<body class="" id="body">
-    <nav>
-        <div class="logo">
-            <img src="./star.svg" alt="">
-            <span>Drei Abmab</span>
-        </div>
-        <div class="ham">
-            <span></span><span></span><span></span>
-        </div>
-    </nav>
+<script>
+    const portfolioData = {
+        name: "Robert Bamba",
+        heroInfo: "I am a website developer who brings ideas to life",
+        heroImgURL: "./profile.png",
+        aboutSubTitle: "Learn more about my journey, passion, and what drives my creative process",
+        aboutHeaderText: "Pushing creative boundaries",
+        aboutInfo: "I'm a passionate creator with a keen eye for detail and a love for bold, impactful designs. My work spans multiple disciplines, allowing me to bring unique perspectives to every project. Whether working with photography, design, or digital media, I believe in creating work that not only looks stunning but also tells a compelling story and connects with audiences on an emotional level.",
+        hobbies: ["Creative Direction", "Visual Design", "Photography", "Brand Identity", "Digital Art", "Concept Development"],
+        aboutImage: "./profile.png",
+        socialLinks: [
+            {
+                icon: "IN",
+                platform: "Linked-In",
+                link: "#"
+            },
+            {
+                icon: "IG",
+                platform: "Instagram",
+                link: "#"
+            },
+            {
+                icon: "X",
+                platform: "X",
+                link: "#"
+            },
+            {
+                icon: "FB",
+                platform: "Facebook",
+                link: "#"
+            }
+        ]
+    };
 
-    <div class="wrapper">
-        <section>
-            <div class="info">
-                <h1>Hello, <br/> Drei</h1>
-                <div class="occupation">
-                    <span>BS-IT</span>
-                    <span>MSU-IIT</span>
-                </div>
-                <div class="img_container">
-                    <div class="img">
-                        <img src="" alt="">
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Populate name in header and footer
+        document.getElementById('name').textContent = portfolioData.name;
+        document.getElementById('footer-logo').textContent = portfolioData.name;
+
+        // Populate hero section
+        document.getElementById('hero-info').textContent = portfolioData.heroInfo;
+        document.getElementById('hero-img').src = portfolioData.heroImgURL;
+        document.getElementById('hero-img').alt = `Portrait of ${portfolioData.name}`;
+
+        // Populate about section
+        document.getElementById('about-subtitle').textContent = portfolioData.aboutSubTitle;
+        document.getElementById('about-header').textContent = portfolioData.aboutHeaderText;
+        document.getElementById('about-info').textContent = portfolioData.aboutInfo;
+        document.getElementById('about-img').src = portfolioData.aboutImage;
+
+        // Populate hobbies
+        const hobbiesContainer = document.getElementById('hobbies-container');
+        portfolioData.hobbies.forEach(hobby => {
+            const hobbyElement = document.createElement('span');
+            hobbyElement.className = 'hobby';
+            hobbyElement.textContent = hobby;
+            hobbiesContainer.appendChild(hobbyElement);
+        });
+
+        // Populate social links
+        const socialLinksContainer = document.getElementById('social-links');
+        portfolioData.socialLinks.forEach(social => {
+            const socialLink = document.createElement('a');
+            socialLink.href = social.link;
+            socialLink.className = 'social-link';
+            socialLink.textContent = social.icon;
+            socialLink.title = social.platform;
+            socialLinksContainer.appendChild(socialLink);
+        });
+
+        // Update page title
+        document.title = `Portfolio | ${portfolioData.name}`;
+    });
+</script>
+
+<!-- -------------- -->
+<!-- Dont Mind this -->
+<!-- -------------- -->
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo" id="name"></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>CREATE <span>BOLD</span> AND IMPACTFUL WORK</h1>
+                    <p id="hero-info"></p>
+                    <div class="hero-btns">
+                        <a href="#about" class="btn">Who Am I?</a>
                     </div>
-                    <button>Amazing</button>
                 </div>
-                <div class="wheel">
-                    I AM AWESOME
-                </div>
-            </div>
-            <div class="details">
-                <div class="quote">
-                    <span>"</span>
-                    <br>
-                    <h3>If I ever give up, then I lose. Through persistance is my victory.</h3>
-                </div>
-                <div class="socials">
-                    <p>Find Me at</p>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
+                <div class="hero-image">
+                    <img id="hero-img" src="./profile.png" alt="Portrait">
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p id="about-subtitle" class="section-subtitle">Learn more about my journey, passion, and what drives my
+                creative process</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 id="about-header">Pushing creative boundaries</h3>
+                    <p id="about-info"></p>
+
+                    <h4>Hobbies:</h4>
+                    <div id="hobbies-container" class="hobbies">
+                        <!-- Hobbies will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img id="about-img"
+                        src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                        alt="Working environment">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="logo" id="footer-logo">PORTFOLIO</a>
+                <div id="social-links" class="social-links">
+                    <!-- Social links will be populated by JavaScript -->
+                </div>
+                <p class="copyright">© 2025 Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load JavaScript files -->
+
+    <script src="app.js"></script>
+
 </body>
 
 </html>
